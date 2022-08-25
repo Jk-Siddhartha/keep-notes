@@ -1,0 +1,44 @@
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 1.5% 2%;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .add-note {
+    width: 45%;
+    padding: 1%;
+  }
+
+  .notes {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .header {
+    padding: 1.5% 2%;
+  }
+
+  .add-note {
+    width: 30%;
+    padding: 1%;
+  }
+
+  .add-note p:nth-child(1) {
+    font-size: 25px;
+    padding: 2.5% 8%;
+  }
+
+  .add-note p:nth-child(2) {
+    font-size: 22px;
+  }
+
+  .notes {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}

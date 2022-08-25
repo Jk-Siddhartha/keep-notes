@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep Notes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="header">
+        <h1>Keep Notes</h1>
+        <div class="add-note">
+          <div onclick="addNote()">
+            <p class="first">></p>
+            <p class="second">add note</p>
+          </div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="note" id="0">
+          <div class="btns">
+            <button class="btn edit" onclick="editNote(0)">edit</button>
+            <button class="btn save" onclick="saveNote(0)">save</button>
+            <button class="btn delete" onclick="deleteNote(0)">delete</button>
+          </div>
+          <textarea class="note-text" disabled="true" rows="4" cols="50">
+this is the first div of the page</textarea
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      var i = 1;
+      function addNote() {
+        const Notes = document.querySelector(".notes");
+        const newNote = `<div class="note" id="${i}">
+                    <div class="btns">
+                        <button class="btn edit" onclick="editNote(${i})">edit</button>
+                        <button class="btn save" onclick="saveNote(${i})">save</button>
+                        <button class="btn delete" onclick="deleteNote(${i})">delete</button>
+                    </div>
+                    <textarea class="note-text" rows="4" cols="50" wrap="physical"></textarea>
+                </div>`;
+        Notes.insertAdjacentHTML("beforeend", newNote);
+        i = i + 1;
+      }
+
+      function saveNote(i) {
+        console.log(i);
+        const noteText = document.querySelectorAll(".note-text");
+        noteText[i].disabled = true;
+      }
+
+      function editNote(i) {
+        console.log(i);
+        const noteText = document.querySelectorAll(".note-text");
+        noteText[i].disabled = false;
+      }
+
+      function deleteNote(i) {
+        const note = document.querySelectorAll(".note");
+        note[i].style.display = "none";
+      }
+    </script>
+  </body>
+</html>
